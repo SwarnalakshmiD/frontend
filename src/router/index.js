@@ -1,21 +1,20 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { app, pages } from '@/config'
-import HomePage from '@/pages/HomePage.vue'
-
-const AboutPage = () => import(/* webpackChunkName: "p-about" */ '@/pages/AboutPage.vue')
+//import { app, pages } from '@/config'
+import productComponent from "@/components/ProductComponent.vue";
+import cartPage from "@/pages/Cart.vue";
 
 const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
-      path: pages.home,
-      name: app.home,
-      component: HomePage
+      path: "/",
+      name: "productList",
+      component: productComponent
     },
     {
-      path: pages.about,
-      name: app.about,
-      component: AboutPage
+        path: "/cart",
+        name: "cartPage",
+        component: cartPage
     }
   ]
 })

@@ -5,7 +5,7 @@
       <div class="col1">
         <filterComponent></filterComponent>
       </div>
-      <productComponent></productComponent>
+      <router-view />
     </div>
     </div>
 </template>

@@ -1,12 +1,21 @@
 <template>
   <div>
-    <h3 style="padding-left: 16px">{{ section }}</h3>
-    <div class="col1style" v-if="checkedNames.length > 0">
-      <p>{{ checkedNames }}</p>
+   
+    <div class="col1style">
+      <button @click="copyState" class="btn1">
+             clear filter
+            </button>
     </div>
     <div class="col1style">
       <h4>CATEGORIES</h4>
-      <li v-for="(item, index) in category" :key="index">{{ item.name }}</li>
+      <div>
+    <div v-for="(item, index) in category" :key="index">
+  <input type="radio" :id="'radio_' + index" :value="item.name" v-model="picked"  @click="filterProducts" />
+  <label :for="'radio_' + index">{{ item.name }}</label>
+</div>
+
+</div>
+
     </div>
     <div class="col1style">
       <h4>BRAND</h4>
@@ -63,7 +72,7 @@
       <label> 2 and above</label><br />
     </div>
     <div class="col1style">
-      <H4>OFFERS</H4>
+      <h4>OFFERS</h4>
       <input
         type="checkbox"
         id="offer1"
@@ -77,7 +86,7 @@
       <label>Special Price</label><br />
     </div>
     <div class="col1style">
-      <H4>DISCOUNT</H4>
+      <h4>DISCOUNT</h4>
       <input type="checkbox" id="star4" name="star4" value="4 & above" />
       <label> 30% offer</label><br />
       <input type="checkbox" id="star3" name="star3" value="3 & above" />
@@ -96,3 +105,6 @@
   border-bottom: 1px solid whitesmoke;
 }
 </style>
+
+
+
